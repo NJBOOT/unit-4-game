@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // Global variables
-    
+
     var targetNumber;
     var num1;
     var num2;
@@ -10,6 +10,9 @@ $(document).ready(function () {
     var userTotal = 0;
     var wins = 0;
     var losses = 0
+    var obj = {
+
+    }
 
     // Functions
 
@@ -22,6 +25,10 @@ $(document).ready(function () {
         userTotal = 0;
         $("#total-score").text(userTotal);
         $("#target-score").text(targetNumber);
+        obj.val1 = num1;
+        obj.val2 = num2;
+        obj.val3 = num3;
+        obj.val4 = num4;
     }
 
     function initialize() {
@@ -34,6 +41,10 @@ $(document).ready(function () {
         $("#wins").text(wins);
         $("#losses").text(losses);
         $("#total-score").text(userTotal);
+        obj.val1 = num1;
+        obj.val2 = num2;
+        obj.val3 = num3;
+        obj.val4 = num4;
     }
     function logic() {
         if (userTotal === targetNumber) {
@@ -52,39 +63,45 @@ $(document).ready(function () {
 
     // Run Game (main)
 
-    // var array = ["#blue","#green","#red","#yellow"]
-    // for (var i =0; i < array.length;i++) {
-    // }
-
     initialize();
 
-    $("#blue").on("click", function () {
-        userTotal = userTotal + num1;
+    $(".img").on("click", function () {
+        var value = $(this).attr("value");
+        userTotal = userTotal + obj[value];
         $("#total-score").text(userTotal);
-        console.log(userTotal);
         logic();
+        console.log(userTotal);
     })
+    // old code
+    // initialize();
 
-    $("#green").on("click", function () {
-        userTotal = userTotal + num2;
-        $("#total-score").text(userTotal);
-        console.log(userTotal);
-        logic();
-    })
+    // $("#blue").on("click", function () {
+    //     userTotal = userTotal + num1;
+    //     $("#total-score").text(userTotal);
+    //     console.log(userTotal);
+    //     logic();
+    // })
 
-    $("#red").on("click", function () {
-        userTotal = userTotal + num3;
-        $("#total-score").text(userTotal);
-        console.log(userTotal);
-        logic();
-    })
+    // $("#green").on("click", function () {
+    //     userTotal = userTotal + num2;
+    //     $("#total-score").text(userTotal);
+    //     console.log(userTotal);
+    //     logic();
+    // })
 
-    $("#yellow").on("click", function () {
-        userTotal = userTotal + num4;
-        $("#total-score").text(userTotal);
-        console.log(userTotal);
-        logic();
-    })
+    // $("#red").on("click", function () {
+    //     userTotal = userTotal + num3;
+    //     $("#total-score").text(userTotal);
+    //     console.log(userTotal);
+    //     logic();
+    // })
+
+    // $("#yellow").on("click", function () {
+    //     userTotal = userTotal + num4;
+    //     $("#total-score").text(userTotal);
+    //     console.log(userTotal);
+    //     logic();
+    // })
 
 
 
